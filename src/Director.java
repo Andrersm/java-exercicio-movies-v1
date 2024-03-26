@@ -17,7 +17,7 @@ public class Director extends Person {
         }
         Scanner scanner = new Scanner(System.in);
         int age;
-        System.out.println("Agora qual é a idade de" + name + "?" );
+        System.out.println("Agora qual é a idade de " + name + "?" );
         age = scanner.nextInt();
         setAge(age);
         allDirectors.add(this);
@@ -30,8 +30,11 @@ public class Director extends Person {
         return directedMovies;
     }
 
-    public void setDirectedMovies(List<Movie> directedMovies) {
-        this.directedMovies = directedMovies;
+    public void setDirectedMovies(Movie movie) {
+        if (this.directedMovies == null) {
+            this.directedMovies = new ArrayList<>();
+        }
+        this.directedMovies.add(movie);
     }
 
 
@@ -52,9 +55,23 @@ public class Director extends Person {
     }
     @Override
     public String toString() {
-        return "Director{" +
-                "name='" + getName() + '\'' +
-                "directedMovies=" + directedMovies +
-                '}';
+        return
+                "+---------------------------------+\n" +
+                        "|                                 |\n" +
+                        "|  Director{                      |\n" +
+                        "|    name='" + getName() + "'      |\n" +
+                        "|    directedMovies=" + directedMovies + "|\n" +
+                        "|  }                              |\n" +
+                        "|                                 |\n" +
+                        "+---------------------------------+";
+    }
+
+    public static Director getDirectorByName(String name) {
+        for (Director diretor : Director.getAllDirectors()) {
+            if (diretor.getName().equals(name)) {
+                return diretor;
+            }
+        }
+        return null;
     }
 }

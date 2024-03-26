@@ -19,15 +19,20 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "director=" + director +
-                ", Titulo='" + name + '\'' +
-                ", Atores=" + actors +
-                ", Local de gravação ='" + recordingAdress + '\'' +
-                ", Tempo de gravação =" + recordingTime +
-                ", Data inicial da gravação =" + initialDate +
-                ", Data final da gravação =" + finalDate +
-                '}';
+        return
+                "//////////////////\n" +
+                        "//              //\n" +
+                        "//   Movie{     //\n" +
+                        "//     director=" + director + "\n" +
+                        "//     Titulo='" + name + "'\n" +
+                        "//     Atores=" + actors + "\n" +
+                        "//     Local de gravação ='" + recordingAdress + "'\n" +
+                        "//     Tempo de gravação =" + recordingTime + "\n" +
+                        "//     Data inicial da gravação =" + initialDate + "\n" +
+                        "//     Data final da gravação =" + finalDate + "\n" +
+                        "//   }          //\n" +
+                        "//              //\n" +
+                        "//////////////////";
     }
 
     public Director getDirector() {
@@ -117,5 +122,14 @@ public class Movie {
          setFinalDate(finalDate);
          setRecordingAdress(adress);
      }
+
+    public static Movie getMovieByName(String name) {
+        for (Movie movie : Movie.getAllMovies()) {
+            if (movie.getName().equals(name)) {
+                return movie;
+            }
+        }
+        return null;
+    }
 }
 

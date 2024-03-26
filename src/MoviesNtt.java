@@ -18,20 +18,70 @@ public class MoviesNtt {
             System.out.println("║ Digite 'LA' para listar atores        ║");
             System.out.println("║ Digite 'LF' para listar filmes        ║");
             System.out.println("║ Digite 'LD' para listar diretores     ║");
+            System.out.println("║ Digite 'FL' para Ligar filme a diretor║");
+            System.out.println("║ Digite 'DL' para ligar filme a ator   ║");
             System.out.println("╚═══════════════════════════════════════╝");
             input = scanner.nextLine().toUpperCase();
 
             switch (input) {
+                case "FL":
+                    System.out.println("┌─────────────────────────────────────┐");
+                    System.out.println("│ Qual ator voce quer ligar?          │");
+                    System.out.println("└─────────────────────────────────────┘");
+                    String nameAtor = scanner.nextLine();
+                    Actor obj = Actor.getActorByName(nameAtor);
+                    if (obj == null) {
+                        System.out.println("Ator não cadastrado");
+                        break;
+                    }
+                    System.out.println("┌─────────────────────────────────────┐");
+                    System.out.println("│ e agora a que filme queres ligar?   │");
+                    System.out.println("└─────────────────────────────────────┘");
+                    String nameFilme = scanner.nextLine();
+                    Movie objFilm = Movie.getMovieByName(nameFilme);
+                    if (nameFilme == null) {
+                        System.out.println("Filme não encontrado");
+                        break;
+                    }
+                    obj.addMovieToFilmography(objFilm);
+                    System.out.println("┌─────────────────────────────────────┐");
+                    System.out.println("│ Filme Ligado a ator com sucesso     │");
+                    System.out.println("└─────────────────────────────────────┘");
+                    break;
+                case "DL":
+                    System.out.println("┌─────────────────────────────────────┐");
+                    System.out.println("│ Qual Diretor voce quer ligar?       │");
+                    System.out.println("└─────────────────────────────────────┘");
+                    String nameDiretor = scanner.nextLine();
+                    Director objdirector = Director.getDirectorByName(nameDiretor);
+                    if (objdirector == null) {
+                        System.out.println("Diretor não cadastrado");
+                        break;
+                    }
+                    System.out.println("┌─────────────────────────────────────┐");
+                    System.out.println("│ e agora a que filme queres ligar?   │");
+                    System.out.println("└─────────────────────────────────────┘");
+                    String nameFilmedirected = scanner.nextLine();
+                    Movie objFilmdirected = Movie.getMovieByName(nameFilmedirected);
+                    if (objFilmdirected == null) {
+                        System.out.println("Filme não encontrado");
+                        break;
+                    }
+                    objdirector.setDirectedMovies(objFilmdirected);
+                    System.out.println("┌─────────────────────────────────────┐");
+                    System.out.println("│ Filme Ligado a diretor com sucesso  │");
+                    System.out.println("└─────────────────────────────────────┘");
+                    break;
                 case "A":
                     System.out.println("┌─────────────────────────────────────┐");
                     System.out.println("│ Qual o nome do ator que queres      │");
                     System.out.println("│ cadastrar?                          │");
                     System.out.println("└─────────────────────────────────────┘");
-                    String name = scanner.nextLine();
-                    Actor actor = new Actor(name);
-                    actor.createActor(name);
+                    String name1 = scanner.nextLine();
+                    Actor actor1 = new Actor(name1);
+                    actor1.createActor(name1);
                     System.out.println("┌─────────────────────────────────────┐");
-                    System.out.println("│ Ator cadastrado: " + name);
+                    System.out.println("│ Ator cadastrado: " + name1);
                     System.out.println("└─────────────────────────────────────┘");
 
                     break;

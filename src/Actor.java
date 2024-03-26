@@ -27,14 +27,24 @@ public class Actor extends Person { ;
         return allActors;
     }
 
-    public void setFilmography(List<Movie> filmography) {
-        this.filmography = filmography;
+    public void addMovieToFilmography(Movie movie) {
+        if (this.filmography == null) {
+            this.filmography = new ArrayList<>();
+        }
+        this.filmography.add(movie);
     }
 
     public void createActor(String name) {
         setName(name);
+    }
 
-
+    public static Actor getActorByName(String name) {
+        for (Actor actor : Actor.getAllActors()) {
+            if (actor.getName().equals(name)) {
+                return actor;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -51,11 +61,16 @@ public class Actor extends Person { ;
 
     @Override
     public String toString() {
-        return "Actor{" +
-                "nome='" + this.getName() + '\'' +
-                ", Idade=" + this.getAge() +
-                ", filmography=" + filmography +
-                '}';
+        return
+                "+---------------------------------+\n" +
+                        "|                                 |\n" +
+                        "|  Actor{                         |\n" +
+                        "|    nome='" + this.getName() + "'                 |\n" +
+                        "|    Idade=" + this.getAge() + "                     |\n" +
+                        "|    filmography=" + filmography + " |\n" +
+                        "|  }                              |\n" +
+                        "|                                 |\n" +
+                        "+---------------------------------+";
     }
 
 }

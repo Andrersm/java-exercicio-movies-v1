@@ -20,9 +20,14 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return
+                "+---------------------------------+\n" +
+                        "|                                 |\n" +
+                        "|  Person{                         |\n" +
+                        "|    name='" + name + "'           |\n" +
+                        "|    age=" + age + "               |\n" +
+                        "|  }                              |\n" +
+                        "|                                 |\n" +
+                        "+---------------------------------+";
     }
 }
