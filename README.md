@@ -20,3 +20,4 @@ Este projeto é uma aplicação simples em Java para cadastro de filmes, atores 
 ## Importante
 Este projeto foi desenvolvido apenas para fins educacionais e não se destina a ser usado em ambientes de produção. Ele oferece uma visão básica sobre como criar uma aplicação simples em Java para cadastro e gerenciamento de dados. Para aplicações mais complexas, recomenda-se o uso de frameworks e bibliotecas mais robustos.
 
+![Menu em ASCI](javinha.png)
